@@ -147,3 +147,89 @@
 - [ ] реальные отзывы;
 - [ ] ссылку на опубликованный проект;
 - [ ] 2–3 скриншота desktop/mobile для Upwork-портфолио.
+
+## Как разместить кейс на Upwork
+
+### Название проекта
+
+**Premium bilingual barbershop website with interactive booking flow**
+
+### Роль
+
+**Frontend Developer · Web Designer**
+
+### Описание для карточки портфолио
+
+> Designed and built a premium bilingual website concept for a barbershop in Almaty. The project combines editorial visual direction with a practical booking experience: service menu, before/after gallery, team selection, date and time picker, WhatsApp CTA, responsive layouts and RU/EN language switching.
+
+### Что показать на обложке
+
+Используй первый экран сайта: крупный заголовок, тёмный фон, портрет и золотую кнопку записи. Обложка должна сразу показывать визуальный уровень, а не форму или длинный текст.
+
+### Рекомендуемый порядок 3 скриншотов
+
+1. **Hero desktop** — первое впечатление и фирменный стиль.
+2. **Services + Before/After gallery** — услуги, цены и доказательство результата.
+3. **Booking section mobile/desktop** — выбор мастера, даты, времени и отправка заявки.
+
+### Что написать в описании результата
+
+Не обещай выдуманные метрики. Для демонстрационного проекта лучше написать:
+
+- created a clear conversion path from landing page to booking;
+- designed a responsive experience for mobile and desktop;
+- added a bilingual RU/EN interface;
+- built a reusable structure that can be connected to Telegram, CRM or Google Calendar for a real client.
+
+### Как отвечать на вопрос «Это реальный клиент?»
+
+> This is a self-initiated portfolio concept created to demonstrate my approach to service-business websites. The structure is production-ready and can be adapted to a real brand with its own photos, copy and booking integrations.
+
+### Какой call to action поставить в профиле
+
+> Need a website that makes your service look premium and turns visitors into bookings? Send me your current Instagram page or website, and I’ll suggest a practical structure for improvement.
+
+## Вторая ниша для портфолио: детейлинг-студия / автосервис премиум-класса
+
+### Почему это хороший выбор
+
+После барбершопа не стоит сразу делать ещё один салон или студию красоты — визуально проекты будут слишком похожи. Премиум-детейлинг даст портфолио другой характер и откроет новую аудиторию:
+
+- владельцы детейлинг-центров;
+- автосервисы;
+- студии оклейки и тонировки;
+- автомойки премиум-класса;
+- продавцы автомобилей и автодилеры.
+
+У этой ниши есть понятная коммерческая цель: показать результат, вызвать доверие и привести клиента к записи на услугу.
+
+### Концепция второго демо-сайта
+
+**Название:** FORGE — Auto Detailing Studio
+
+**Стиль:** тёмный industrial luxury — графит, сталь, кислотный лайм или медный акцент.
+
+**Главный оффер:**
+
+> Вернём автомобилю состояние, в котором его хочется фотографировать.
+
+### Структура сайта
+
+1. Hero с автомобилем до/после и CTA «Рассчитать стоимость».
+2. Услуги: полировка, керамика, оклейка, химчистка, детейлинг.
+3. Галерея кейсов по маркам автомобилей.
+4. Блок «До / После».
+5. Процесс работы в 3–4 шага.
+6. Пакеты и ориентировочная стоимость.
+7. Отзывы владельцев автомобилей.
+8. Форма расчёта: марка, модель, услуга, желаемая дата.
+9. Карта, адрес, WhatsApp и Instagram.
+
+### Почему этот кейс усилит портфолио
+
+Вместе с BLADE он покажет, что ты умеешь делать не один шаблон, а разные коммерческие интерфейсы:
+
+- BLADE продаёт личный сервис, атмосферу и запись;
+- FORGE будет продавать визуальный результат, доверие и расчёт стоимости.
+
+Такое портфолио легче показывать разным владельцам бизнеса, потому что ты демонстрируешь понимание конкретной ниши, а не просто генерацию красивых страниц.
