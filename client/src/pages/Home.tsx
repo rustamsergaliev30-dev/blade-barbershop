@@ -144,11 +144,29 @@ const copy = {
 
 const navIds = ["about", "services", "team", "contact"];
 
+const dateKey = (date: Date) => date.toISOString().slice(0, 10);
+
+const formatDateLabel = (date: Date, lang: Lang) =>
+  date.toLocaleDateString(lang === "ru" ? "ru-RU" : "en-US", { day: "2-digit", month: "short" });
+
+const formatWeekday = (date: Date, lang: Lang) =>
+  date.toLocaleDateString(lang === "ru" ? "ru-RU" : "en-US", { weekday: "short" }).replace(".", "");
+
 export default function Home() {
   const [lang, setLang] = useState<Lang>("ru");
   const [menuOpen, setMenuOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [bookingMaster, setBookingMaster] = useState(0);
+  const [bookingDate, setBookingDate] = useState(() => new Date());
+  const [bookingTime, setBookingTime] = useState("12:00");
   const t = copy[lang];
+  const calendarDays = Array.from({ length: 7 }, (_, index) => {
+    const day = new Date();
+    day.setHours(12, 0, 0, 0);
+    day.setDate(day.getDate() + index);
+    return day;
+  });
+  const timeSlots = ["10:00", "11:30", "12:00", "13:30", "15:00", "16:30", "18:00", "19:30", "21:00"];
 
   const jumpTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -274,6 +292,18 @@ export default function Home() {
           <div className="gallery-vertical">BLADE / 2024 / ALMATY</div>
         </section>
 
+        <section className="work-gallery-section section-padding">
+          <div className="container">
+            <div className="section-topline light-line"><span>{lang === "ru" ? "04 / До и после" : "04 / Before & after"}</span><span>{lang === "ru" ? "Точность видна в деталях." : "Precision you can see."}</span></div>
+            <div className="work-heading-row"><h2>{lang === "ru" ? <>Результат,<br />который видно.</> : <>The result<br />speaks clearly.</>}</h2><p>{lang === "ru" ? "Листайте реальные трансформации и выберите настроение для следующего визита." : "Browse transformation references and find the mood for your next visit."}</p></div>
+            <div className="work-gallery-grid">
+              <article className="work-card"><div className="work-image"><img src="/manus-storage/transformation-01_a0d1b53b.jpg" alt={lang === "ru" ? "Пример трансформации до и после" : "Before and after transformation example"} /><span className="work-badge">01</span><div className="work-pills"><span>{lang === "ru" ? "ДО" : "BEFORE"}</span><span>{lang === "ru" ? "ПОСЛЕ" : "AFTER"}</span></div></div><div className="work-caption"><div><h3>{lang === "ru" ? "Текстурный crop" : "Textured crop"}</h3><p>{lang === "ru" ? "Signature Cut · 60 мин" : "Signature Cut · 60 min"}</p></div><ArrowUpRight size={18} /></div></article>
+              <article className="work-card"><div className="work-image"><img src="/manus-storage/transformation-02_e2b65053.png" alt={lang === "ru" ? "Пример мужской стрижки до и после" : "Men's haircut before and after example"} /><span className="work-badge">02</span><div className="work-pills"><span>{lang === "ru" ? "ДО" : "BEFORE"}</span><span>{lang === "ru" ? "ПОСЛЕ" : "AFTER"}</span></div></div><div className="work-caption"><div><h3>{lang === "ru" ? "Clean fade" : "Clean fade"}</h3><p>{lang === "ru" ? "The Full Ritual · 90 мин" : "The Full Ritual · 90 min"}</p></div><ArrowUpRight size={18} /></div></article>
+            </div>
+            <p className="work-note">{lang === "ru" ? "Демонстрационные референсы — замените их на собственные фото клиентов перед публикацией кейса." : "Demonstration references — replace them with your own client photos before publishing the case."}</p>
+          </div>
+        </section>
+
         <section id="team" className="team-section section-padding">
           <div className="container">
             <div className="team-heading"><div><span className="section-kicker dark">{t.teamLabel}</span><h2>{t.teamTitle.split("\n").map((line) => <span key={line}>{line}</span>)}</h2></div><p>{t.teamBody}</p></div>
@@ -298,6 +328,14 @@ export default function Home() {
           <div className="container booking-grid">
             <div className="booking-copy"><span className="section-kicker dark">{t.bookingLabel}</span><h2>{t.bookingTitle.split("\n").map((line) => <span key={line}>{line}</span>)}</h2><p>{t.bookingBody}</p><div className="contact-details"><a href="https://wa.me/77072001870" target="_blank" rel="noreferrer"><MessageCircle size={17} />{t.bookWhatsApp}<ArrowUpRight size={15} /></a><div><MapPin size={16} /><span>{t.address}<small>{t.city}</small></span></div><div><CalendarDays size={16} /><span>{t.hours}</span></div></div></div>
             <form className="booking-form" onSubmit={handleSubmit}>
+              <div className="schedule-panel">
+                <div className="schedule-heading"><span>{lang === "ru" ? "Выберите мастера" : "Choose a master"}</span><small>{lang === "ru" ? "Кто будет создавать ваш образ" : "Who will shape your look"}</small></div>
+                <div className="master-picker">{t.team.map((member, index) => <button type="button" key={member.name} className={bookingMaster === index ? "master-option active" : "master-option"} onClick={() => setBookingMaster(index)}><img src={member.image} alt="" /><span><strong>{member.name}</strong><small>{member.role}</small></span><Check size={14} /></button>)}</div>
+                <div className="schedule-heading date-heading"><span>{lang === "ru" ? "Дата и время" : "Date & time"}</span><small>{formatDateLabel(bookingDate, lang)}</small></div>
+                <div className="calendar-days">{calendarDays.map((day) => <button type="button" key={dateKey(day)} className={dateKey(bookingDate) === dateKey(day) ? "calendar-day active" : "calendar-day"} onClick={() => setBookingDate(day)}><span>{formatWeekday(day, lang)}</span><strong>{day.getDate()}</strong></button>)}</div>
+                <div className="time-slots">{timeSlots.map((time) => <button type="button" key={time} className={bookingTime === time ? "time-slot active" : "time-slot"} onClick={() => setBookingTime(time)}>{time}</button>)}</div>
+                <div className="booking-summary"><CalendarDays size={15} /><span>{t.team[bookingMaster].name} · {formatDateLabel(bookingDate, lang)} · {bookingTime}</span></div>
+              </div>
               <label><span>{t.name}</span><input required name="name" placeholder="Ruslan" /></label>
               <label><span>{t.phone}</span><input required name="phone" type="tel" placeholder="+7 (___) ___-__-__" /></label>
               <label><span>{t.service}</span><select required name="service" defaultValue=""><option value="" disabled>{t.service}</option>{t.services.map((service) => <option value={service.name} key={service.name}>{service.name} · {service.price}</option>)}</select></label>
