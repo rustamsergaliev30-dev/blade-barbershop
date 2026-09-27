@@ -18,6 +18,7 @@ import {
 import { toast } from "sonner";
 
 type Lang = "ru" | "en";
+const asset = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`;
 
 const copy = {
   ru: {
@@ -54,8 +55,8 @@ const copy = {
     teamTitle: "Люди, которым\nможно доверять.",
     teamBody: "Наши мастера слушают, предлагают и делают ровно то, что подходит вам — не трендам из ленты.",
     team: [
-      { name: "Илья Морозов", role: "Founder · Master Barber", image: "/assets/portrait.jpg" },
-      { name: "Арман Садыков", role: "Senior Barber", image: "/assets/hair-detail.jpg" },
+      { name: "Илья Морозов", role: "Founder · Master Barber", image: asset("portrait.jpg") },
+      { name: "Арман Садыков", role: "Senior Barber", image: asset("hair-detail.jpg") },
     ],
     reviewsLabel: "05 / Отзывы",
     reviewsTitle: "Сказано\nгостями BLADE.",
@@ -114,8 +115,8 @@ const copy = {
     teamTitle: "People you\ncan trust.",
     teamBody: "Our barbers listen, suggest and create what fits you — not whatever is trending on your feed.",
     team: [
-      { name: "Ilya Morozov", role: "Founder · Master Barber", image: "/assets/portrait.jpg" },
-      { name: "Arman Sadykov", role: "Senior Barber", image: "/assets/hair-detail.jpg" },
+      { name: "Ilya Morozov", role: "Founder · Master Barber", image: asset("portrait.jpg") },
+      { name: "Arman Sadykov", role: "Senior Barber", image: asset("hair-detail.jpg") },
     ],
     reviewsLabel: "05 / Words from guests",
     reviewsTitle: "BLADE,\nin their words.",
@@ -236,7 +237,7 @@ export default function Home() {
             <div className="hero-visual">
               <div className="hero-number">01<span>/</span>06</div>
               <div className="hero-image-wrap">
-                <img src="/assets/portrait.jpg" alt={lang === "ru" ? "Портрет гостя BLADE" : "BLADE guest portrait"} />
+                <img src={asset("portrait.jpg")} alt={lang === "ru" ? "Портрет гостя BLADE" : "BLADE guest portrait"} />
                 <div className="hero-image-overlay" />
                 <div className="image-caption"><span>01</span><span>{lang === "ru" ? "THE BLADE PORTRAIT" : "THE BLADE PORTRAIT"}</span></div>
               </div>
@@ -286,9 +287,9 @@ export default function Home() {
         </section>
 
         <section className="gallery-section">
-          <div className="gallery-image large-image"><img src="/assets/interior-wide.jpg" alt={lang === "ru" ? "Интерьер BLADE" : "BLADE interior"} /><div className="gallery-shade" /></div>
+          <div className="gallery-image large-image"><img src={asset("interior-wide.jpg")} alt={lang === "ru" ? "Интерьер BLADE" : "BLADE interior"} /><div className="gallery-shade" /></div>
           <div className="gallery-copy"><span className="section-kicker">{t.galleryLabel}</span><h2>{t.galleryTitle.split("\n").map((line) => <span key={line}>{line}</span>)}</h2><p>{t.galleryBody}</p><button className="text-link light" onClick={() => jumpTo("contact")}>{t.book}<span className="link-line" /></button></div>
-          <div className="gallery-image detail-image"><img src="/assets/hair-detail.jpg" alt={lang === "ru" ? "Деталь укладки" : "Hair styling detail"} /></div>
+          <div className="gallery-image detail-image"><img src={asset("hair-detail.jpg")} alt={lang === "ru" ? "Деталь укладки" : "Hair styling detail"} /></div>
           <div className="gallery-vertical">BLADE / 2024 / ALMATY</div>
         </section>
 
@@ -297,8 +298,8 @@ export default function Home() {
             <div className="section-topline light-line"><span>{lang === "ru" ? "04 / До и после" : "04 / Before & after"}</span><span>{lang === "ru" ? "Точность видна в деталях." : "Precision you can see."}</span></div>
             <div className="work-heading-row"><h2>{lang === "ru" ? <>Результат,<br />который видно.</> : <>The result<br />speaks clearly.</>}</h2><p>{lang === "ru" ? "Листайте реальные трансформации и выберите настроение для следующего визита." : "Browse transformation references and find the mood for your next visit."}</p></div>
             <div className="work-gallery-grid">
-              <article className="work-card"><div className="work-image"><img src="/assets/transformation-01.jpg" alt={lang === "ru" ? "Пример трансформации до и после" : "Before and after transformation example"} /><span className="work-badge">01</span><div className="work-pills"><span>{lang === "ru" ? "ДО" : "BEFORE"}</span><span>{lang === "ru" ? "ПОСЛЕ" : "AFTER"}</span></div></div><div className="work-caption"><div><h3>{lang === "ru" ? "Текстурный crop" : "Textured crop"}</h3><p>{lang === "ru" ? "Signature Cut · 60 мин" : "Signature Cut · 60 min"}</p></div><ArrowUpRight size={18} /></div></article>
-              <article className="work-card"><div className="work-image"><img src="/assets/transformation-02.png" alt={lang === "ru" ? "Пример мужской стрижки до и после" : "Men's haircut before and after example"} /><span className="work-badge">02</span><div className="work-pills"><span>{lang === "ru" ? "ДО" : "BEFORE"}</span><span>{lang === "ru" ? "ПОСЛЕ" : "AFTER"}</span></div></div><div className="work-caption"><div><h3>{lang === "ru" ? "Clean fade" : "Clean fade"}</h3><p>{lang === "ru" ? "The Full Ritual · 90 мин" : "The Full Ritual · 90 min"}</p></div><ArrowUpRight size={18} /></div></article>
+              <article className="work-card"><div className="work-image"><img src={asset("transformation-01.jpg")} alt={lang === "ru" ? "Пример трансформации до и после" : "Before and after transformation example"} /><span className="work-badge">01</span><div className="work-pills"><span>{lang === "ru" ? "ДО" : "BEFORE"}</span><span>{lang === "ru" ? "ПОСЛЕ" : "AFTER"}</span></div></div><div className="work-caption"><div><h3>{lang === "ru" ? "Текстурный crop" : "Textured crop"}</h3><p>{lang === "ru" ? "Signature Cut · 60 мин" : "Signature Cut · 60 min"}</p></div><ArrowUpRight size={18} /></div></article>
+              <article className="work-card"><div className="work-image"><img src={asset("transformation-02.png")} alt={lang === "ru" ? "Пример мужской стрижки до и после" : "Men's haircut before and after example"} /><span className="work-badge">02</span><div className="work-pills"><span>{lang === "ru" ? "ДО" : "BEFORE"}</span><span>{lang === "ru" ? "ПОСЛЕ" : "AFTER"}</span></div></div><div className="work-caption"><div><h3>{lang === "ru" ? "Clean fade" : "Clean fade"}</h3><p>{lang === "ru" ? "The Full Ritual · 90 мин" : "The Full Ritual · 90 min"}</p></div><ArrowUpRight size={18} /></div></article>
             </div>
             <p className="work-note">{lang === "ru" ? "Демонстрационные референсы — замените их на собственные фото клиентов перед публикацией кейса." : "Demonstration references — replace them with your own client photos before publishing the case."}</p>
           </div>
